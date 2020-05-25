@@ -20,9 +20,7 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     // Not adding `{ audio: true }` since we only want video now
     var configuracion = {
         video: {
-            facingMode: { 
-                exact: 'environment'
-            }
+            facingMode: "user"
         },
     };
     navigator.mediaDevices.getUserMedia(configuracion).then(function(stream) {
