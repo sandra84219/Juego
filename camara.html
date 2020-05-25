@@ -16,6 +16,7 @@ var video = document.getElementById('video');
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 var pikachu = document.getElementById("pikachu");
+var x,y;
 
 // Get access to the camera!
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -33,8 +34,10 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 }
 
 setInterval (function(){
+    x = Math.randon()*480;
+    y = Math.randon()*640;
     context.drawImage(video, 0, 0, 480, 640);
-    context.drawImage(pikachu,50,50);
+    context.drawImage(pikachu,x,y);
 },200);
     </script>
   </body>
