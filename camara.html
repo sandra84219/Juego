@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
+    <img id="pikachu" src="pikachu-clipart-pokemon-electric-1.png" style="display:none">
     <video id="video" width="480" height="640" autoplay style="display:none;"></video>
     <canvas id="canvas" width="480" height="640"></canvas>
     <script>
@@ -14,6 +15,7 @@
 var video = document.getElementById('video');
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
+var pikachu = document.getElementById("pikachu");
 
 // Get access to the camera!
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -32,6 +34,7 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
 setInterval (function(){
     context.drawImage(video, 0, 0, 480, 640);
+    context.drawImage(pikachu,50,50);
 },200);
     </script>
   </body>
