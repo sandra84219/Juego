@@ -32,16 +32,6 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
 setInterval (function(){
     context.drawImage(video, 0, 0, 480, 640);
-    var imgData = context.getImageData(0, 0, canvas.width, canvas.height);
-    var lng = imgData.data.length;
-    var i;
-    for (i=0; i<lng; i+=4){
-        imgData.data[i]   = 255 - imgData.data[i];
-        imgData.data[i+1] = 255 - imgData.data[i+1];
-        imgData.data[i+2] = 255 - imgData.data[i+2];
-        imgData.data[i+3] = 255;
-    }
-    context.putImageData(imgData, 0, 0);
 },200);
     </script>
   </body>
