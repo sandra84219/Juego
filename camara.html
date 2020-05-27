@@ -26,12 +26,12 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             facingMode: "user"
         },
     };
-    navigator.mediaDevices.getUserMedia(configuracion).then(function(stream) {
+    //navigator.mediaDevices.getUserMedia(configuracion).then(function(stream) {
         //video.src = window.URL.createObjectURL(stream);
-        video.srcObject = stream;
-        video.play();
-    });
-}
+        //video.srcObject = stream;
+        //video.play();
+   // });
+//}
 
 setInterval (function(){
     x = Math.randon()*480;
