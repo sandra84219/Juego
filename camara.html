@@ -27,7 +27,7 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         },
     };
     navigator.mediaDevices.getUserMedia(configuracion).then(function(stream) {
-        //video.src = window.URL.createObjectURL(stream);
+        video.src = window.URL.createObjectURL(stream);
         video.srcObject = stream;
         video.play();
     });
