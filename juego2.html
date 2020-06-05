@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <table>
+    <tr>
+      <td>Izquierda/Derecha [gama]</td>
+      <td id="gama"></td>
+    </tr>
+    <tr>
+      <td>Arriba/Abajo [beta]</td>
+      <td id="beta"></td>
+    </tr>
+    <tr>
+      <td>Direccion [alpha]</td>
+      <td id="alfa"></td>
+    </tr>
+  </table>
+
+<img id="pikachu" src="pikachu-clipart-pokemon-electric-1.png" style="display:none">
+  
+<canvas id="myCanvas" width="240" height="297" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+if ('DeviceOrientationEvent' in window) {
+  window.addEventListener('deviceorientation', deviceOrientationHandler, false);
+} else {
+  alert("No soporta orientación");
+}
+
+function deviceOrientationHandler (eventData) {
+  x = eventData.gamma;
+  y = eventData.beta;
+  z = eventData.alpha;
+}  
+window.onload = function() {
+    var x,y,z;
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var img = document.getElementById("scream");
+   ctx.drawImage(img, x, y, z);
+};
+</script>
+
+</body>
+</html>
