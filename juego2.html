@@ -1,47 +1,69 @@
 <!DOCTYPE html>
 <html>
-<body>
-  <table>
-    <tr>
-      <td>Izquierda/Derecha [gama]</td>
-      <td id="gama"></td>
-    </tr>
-    <tr>
-      <td>Arriba/Abajo [beta]</td>
-      <td id="beta"></td>
-    </tr>
-    <tr>
-      <td>Direccion [alpha]</td>
-      <td id="alfa"></td>
-    </tr>
-  </table>
+  <head>
+    <meta charset="utf-8">
+    <title>camara</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <img id="pikachu" src="pikachu-clipart-pokemon-electric-1.png" style="display:none">
+    <video id="video" width="480" height="640" autoplay style="display:none;"></video>
+    <canvas id="canvas" width="480" height="640"></canvas>
+    <script>
 
-<img id="pikachu" src="pikachu-clipart-pokemon-electric-1.png" style="display:none">
-  
-<canvas id="myCanvas" width="240" height="297" style="border:1px solid #d3d3d3;">
-Your browser does not support the HTML5 canvas tag.
-</canvas>
+var video = document.getElementById('video');
+var canvas = document.getElementById('canvas');
+var context = canvas.getContext('2d');
+var pikachu = document.getElementById("pikachu");
+var x,y;
+var location={
+   x:location0.x,
+   y:location0,y+event["beta"]*3
+}
+var alpha=Math.random()*360;
+var beta=Math.random()*360-180;
+var gamma=Math.random()*180-90;
 
-<script>
-if ('DeviceOrientationEvent' in window) {
-  window.addEventListener('deviceorientation', deviceOrientationHandler, false);
-} else {
-  alert("No soporta orientación");
+// Get access to the camera!
+if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Not adding `{ audio: true }` since we only want video now
+    var configuracion = {
+        video: {
+            facingMode: "user"
+        },
+    }; 
+   navigator.mediaDevices.getUserMedia(configuracion).then(function(stream) {
+        //video.src = window.URL.createObjectURL(stream);
+        video.srcObject = stream;
+        video.play();
+    });
 }
 
-function deviceOrientationHandler (eventData) {
-  x = eventData.gamma;
-  y = eventData.beta;
-  z = eventData.alpha;
-}  
-window.onload = function() {
-    var x,y,z;
-    var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
-    var img = document.getElementById("scream");
-   ctx.drawImage(img, x, y, z);
-};
-</script>
+//Get access to the orientatio sensor
+if ('DeviceOrientationEvent' in window) {
+  // Escuche el evento de orientación del dispositivo y maneje el objeto DeviceOrientationEvent
+  window.addEventListener ('deviceorientation', deviceOrientationHandler, false);
+} else if ('OrientationEvent' in window) {
+// Escucha el evento MozOrientation y maneja el objeto OrientationData
+  window.addEventListener ('MozOrientation', mozDevOrientHandler, false);
+}
 
-</body>
+  function deviceOrientationHandler (eventData) {
+  //es la ubicacion a donde apunta el celular eventData: alpha,beta,gamma.
+  //ubicacion de pichachu alpha,beta,gama
+  //calcular x,y
+	
+	eventData.gamma;  
+	eventData.beta;   
+	eventData.alpha;   
+}   
+
+setInterval (function(){   
+    x = canvas.width/2;
+    y = canvas.height/2;
+    context.drawImage(video, 0, 0, 480, 640);
+    context.drawImage(pikachu,x,y);
+},200);
+    </script>
+  </body>
 </html>
