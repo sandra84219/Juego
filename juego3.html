@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <link href="/static/build/styles/samples.37902ba3b7fe.css" rel="stylesheet" type="text/css" />
-</head>
-
 <body>
 
 <img id="scream" src="pikachu-clipart-pokemon-electric-1.png" style="display:none">
@@ -14,17 +9,15 @@ Your browser does not support the HTML5 canvas tag.
 </canvas>
 
 <script>
-var x,y;
-var output = document.querySelector('.output');
-var maxX = canvas.clientWidth  - img.clientWidth;
-var maxY = canvas.clientHeight - img.clientHeight;
+    var x,y;
 
+var output = document.querySelector('.output');
 function handleOrientation(event) {
   var x = event.beta;  // In degree in the range [-180,180]
   var y = event.gamma; // In degree in the range [-90,90]
 
-  output.innerHTML  = "beta : " + x + "\n";
-  output.innerHTML += "gamma: " + y + "\n";
+  output  = "beta : " + x + "\n";
+  output += "gamma: " + y + "\n";
 
   // Because we don't want to have the device upside down
   // We constrain the x value to the range [-90,90]
@@ -35,19 +28,12 @@ function handleOrientation(event) {
   // x and y to [0,180]
   x += 90;
   y += 90;
-
-  // 10 is half the size of the ball
-  // It center the positioning point to the center of the ball
-  //img.style.top  = (maxY*y/180 - 10) + "px";
-  //img.style.left = (maxX*x/180 - 10) + "px";
 }
-
 window.addEventListener('deviceorientation', handleOrientation);
 
-
 window.onload = function() {
-    x = canvas.width/2;
-    y = canvas.height/2;
+    x = 240/2;
+    y = 297/2; 
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
     var img = document.getElementById("scream");
