@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <img id="pikachu" src="pikachu-clipart-pokemon-electric-1.png"         style="display:none">
-    <video id="video" width="480" height="640"     autoplay             style="display:none;"></video>
-    <canvas id="myCanvas" width="480" height="640"style="border:1px     solid #d3d3d3;"> 
+    <img id="pikachu" src="pikachu-clipart-pokemon-electric-1.png" style="display:none">
+    <video id="video" width="480" height="640" autoplay style="display:none;"></video>
+    <canvas id="myCanvas" width="480" height="640"style="border:1px  solid #d3d3d3;"> 
     Your browser does not support the HTML5 canvas tag.
     </canvas>
     <pre class="output"></pre>
@@ -32,7 +32,7 @@
             facingMode: "user"
         },
     };
-    navigator.mediaDevices.getUserMedia(configuracion).then(function       (stream) {
+    navigator.mediaDevices.getUserMedia(configuracion).then(function  (stream) {
         //video.src = window.URL.createObjectURL(stream);
         video.srcObject = stream;
         video.play();
