@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <meta charset="utf-8">
     <title>camara</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   </head>
   <body>
-    <img id="pikachu" src="pikachu-clipart-pokemon-electric-1.png"      style="display:none">
-    <video id="video" width="480" height="640"autoplay       style="display:none;"></video>
-    <canvas id="myCanvas" width="480" height="640"></canvas>
+
+    <img id="pikachu" src="pikachu-clipart-pokemon-electric-1.png" style="display:none">
+    <video id="video" width="480px" height="640px"autoplay style="display:none;"></video>
+    <canvas id="myCanvas" width="480px" height="640px"></canvas>
     <pre class="output"></pre>
+
   <script>
     var video = document.getElementById('video');
     var canvas = document.getElementById('myCanvas');
@@ -17,9 +21,9 @@
     var pikachu = document.getElementById("pikachu"); 
     var x,y;
     var output = document.querySelector('.output');
-    var maxX = myCanvas.clientWidth  - pikachu.clientWidth;
-    var maxY = myCanvas.clientHeight - pikachu.clientHeight;
-  //var maxZ = myCanvas.clientHeight - pikachu.clientHeight; 
+    var maxX = canvas.clientWidth  - pikachu.clientWidth;
+    var maxY = canvas.clientHeight - pikachu.clientHeight;
+  //var maxZ = canvas.clientHeight - pikachu.clientHeight; 
 
     // Get access to the camera!
     if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)          {
@@ -29,8 +33,7 @@
             facingMode: "user"
         },
     };
-    
-    navigator.mediaDevices.getUserMedia(configuracion).then(function           (stream) {
+    navigator.mediaDevices.getUserMedia(configuracion).then(function (stream) {
         //video.src = window.URL.createObjectURL(stream);
         video.srcObject = stream;
         video.play();
@@ -39,12 +42,12 @@
 
     //Get access to the orientatio sensor 
     if ('DeviceOrientationEvent' in window) {
-    window.addEventListener('deviceorientation', deviceOrientationHandler,     false);
+    window.addEventListener('deviceorientation', deviceOrientationHandler, false);
     } else {
     alert("No soporta orientación");
     }
 
-    function deviceOrientationHandler (eventData) { 
+    function  deviceOrientationHandler (eventData) { 
     var x = eventData.beta;  // In degree in the range [-180,180]
     var y = eventData.gamma; // In degree in the range [-90,90]
   //var z = eventData.alpha; // In degree in the range [0,360]
@@ -64,16 +67,16 @@
     y += 90;
   //10 is half the size of the ball
   //It center the positioning point to the center of the ball
-    //pikachu.style.top  = (maxY*y/180 - 10) + "px";
-    //pikachu.style.left = (maxX*x/180 - 10) + "px";
-   
+  //  pikachu.style.top  = (maxY*y/180 - 10) + "px";
+    //pikachu.style.left = (maxX*x/180 - 10) + "px";   
     }   
 
-    setInterval (function (eventData){ 
-     x = canvas.width/2;
-     y = canvas.height/2; 
+    setInterval (function deviceOrientationHandler(eventData){ 
+    x=480/2;
+    y=640/2;   
      context.drawImage(video, 0, 0, 480, 640);
      context.drawImage(pikachu,x,y);
+
     },200);   
 
     window.addEventListener('deviceorientation',deviceOrientationHandler);
