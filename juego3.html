@@ -14,11 +14,11 @@ Your browser does not support the HTML5 canvas tag.
   var maxX = myCanvas.clientWidth  - scream.clientWidth;
   var maxY = myCanvas.clientHeight - scream.clientHeight;
   //var maxZ = myCanvas.clientHeight - scream.clientHeight;  
- function handleOrientation(event) {
+ function handleOrientation(eventData) {
   
-  var x = event.beta;  // In degree in the range [-180,180]
-  var y = event.gamma; // In degree in the range [-90,90]
-  //var z = event.alpha; // In degree in the range [0,360]
+  var x = eventData.beta;  // In degree in the range [-180,180]
+  var y = eventData.gamma; // In degree in the range [-90,90]
+  //var z = eventData.alpha; // In degree in the range [0,360]
    
   output.innerHTML  = "beta : " + x + "\n";
   output.innerHTML += "gamma: " + y + "\n";
