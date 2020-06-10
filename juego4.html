@@ -45,11 +45,7 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         video.play();
     });
 }
-if ('DeviceOrientationEvent' in window) {
-  window.addEventListener('deviceorientation', deviceOrientationHandler, false);
-} else {
-  alert("No soporta orientación");
-}
+
 function deviceOrientationHandler (eventData) {
   document.getElementById("gama").innerHTML = eventData.gamma;
   document.getElementById("beta").innerHTML = eventData.beta;
