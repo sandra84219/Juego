@@ -53,13 +53,17 @@ if ('DeviceOrientationEvent' in window) {
 
 	eventData.gamma;  
 	eventData.beta;   
-	eventData.alpha;
-	x = canvas.width/2;
-    	y = canvas.height/2;
-    	context.drawImage(video, u,v , 480, 640);
-    	context.drawImage(pikachu,x,y);
-} ,200);  
+	eventData.alpha;   
+}   
 
+
+setInterval (function(){  
+    x = canvas.width/2;
+    y = canvas.height/2;
+	var u = eventData.beta; 
+    context.drawImage(video, u, 0, 480, 640);
+    context.drawImage(pikachu,x,y);
+},200);
     </script>
   </body>
 </html>
