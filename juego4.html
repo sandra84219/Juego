@@ -54,14 +54,16 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   document.getElementById("alfa").innerHTML = eventData.alpha;
 }   
 setInterval (function(eventData){
-    var x = Math.round(Math.random()*480);  // In degree in the range [-180,180]
-    var y = Math.round(Math.random()*640);
+    var alfa = Math.round(Math.random()*480);  // In degree in the range [-180,180]
+    var beta = Math.round(Math.random()*640);
+    var x = eventData.gamma;
+    var y = eventData.beta;
     //var x = eventData.beta;  // In degree in the range [-180,180]
     //var y = eventData.gamma;
    // eventdata.alfa = x;
     //eventdata.beta = y;
-    context.drawImage(video, eventData.gamma, eventData.beta, 480, 640);
-    context.drawImage(pikachu,x,y);
+    context.drawImage(video, 0, 0, 480, 640);
+    context.drawImage(pikachu,x - alfa ,y - beta);
 },200);
     </script>
   </body>
