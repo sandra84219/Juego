@@ -9,9 +9,6 @@
     <img id="pikachu" src="pikachu-clipart-pokemon-electric-1.png" style="display:none">
     <video id="video" width="480" height="640" autoplay style="display:none;"></video>
     <canvas id="canvas" width="480" height="640"></canvas>
-        <div class="video">
-    <div class="pikachu"></div>
-    </div>
     <pre class="output"></pre>
     <table>
     <tr>
@@ -27,7 +24,6 @@
       <td id="gama"></td>
     </tr>
     </table>
-
     <script>
 
 var video = document.getElementById('video');
@@ -60,14 +56,9 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   document.getElementById("alfa").innerHTML = eventData.alpha;
 }   
 setInterval (function(){
-  var x = event.beta;  // In degree in the range [-180,180]
-  var y = event.gamma; // In degree in the range [-90,90]
+  var x = eventData.beta;  // In degree in the range [-180,180]
+  var y = eventData.gamma; // In degree in the range [-90,90]
 
-
-  // To make computation easier we shift the range of 
-  // x and y to [0,180]
-  x += 90;
-  y += 90;
 
   // 10 is half the size of the ball
   // It center the positioning point to the center of the ball
