@@ -1,3 +1,4 @@
+< 
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,21 +9,7 @@
   <body>
     <img id="pikachu" src="pikachu-clipart-pokemon-electric-1.png" style="display:none">
     <video id="video" width="480" height="640" autoplay style="display:none;"></video>
-    <canvas id="canvas" width="480" height="640"></canvas>  
-    <table>
-    <tr>
-      <td>Izquierda/Derecha [gama]</td>
-      <td id="gama"></td>
-    </tr>
-    <tr>
-      <td>Arriba/Abajo [beta]</td>
-      <td id="beta"></td>
-    </tr>
-    <tr>
-      <td>Dirección [alpha]</td>
-      <td id="alfa"></td>
-    </tr>
-  </table>
+    <canvas id="canvas" width="480" height="640"></canvas>
     <script>
 
 var video = document.getElementById('video');
@@ -45,18 +32,13 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         video.play();
     });
 }
-
-function deviceOrientationHandler (eventData) {
-  document.getElementById("gama").innerHTML = eventData.gamma;
-  document.getElementById("beta").innerHTML = eventData.beta;
-  document.getElementById("alfa").innerHTML = eventData.alpha;
-}     
 setInterval (function(){
+  
     x = Math.random()*480;
     y = Math.random()*640;
     context.drawImage(video, 0, 0, 480, 640);
     context.drawImage(pikachu,x,y);
-},200);
+},10);
     </script>
   </body>
 </html>
