@@ -50,7 +50,11 @@ if ('DeviceOrientationEvent' in window) {
 } else {
   alert("No soporta orientación");
 }
-	    
+function deviceOrientationHandler (eventData) {
+  document.getElementById("gama").innerHTML = eventData.gamma;
+  document.getElementById("beta").innerHTML = eventData.beta;
+  document.getElementById("alfa").innerHTML = eventData.alpha;
+}     
 setInterval (function(){
     x = Math.random()*480;
     y = Math.random()*640;
