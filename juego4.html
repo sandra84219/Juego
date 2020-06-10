@@ -48,9 +48,9 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 }
      
 function deviceOrientationHandler (eventData) {
-  document.getElementById("gama").innerHTML = eventData.gamma;
-  document.getElementById("beta").innerHTML = eventData.beta;
-  document.getElementById("alfa").innerHTML = eventData.alpha;
+ gama = eventData.gamma;
+ beta = eventData.beta;
+ alfa = eventData.alpha;
 } 
 setInterval (function(){
     x = Math.random()*480;
