@@ -1,3 +1,4 @@
+  
 <!DOCTYPE html>
  <html>
   <body>
@@ -16,21 +17,7 @@
     var output = document.querySelector('.output');
     var maxX = myCanvas.clientWidth  - scream.clientWidth;
     var maxY = myCanvas.clientHeight - scream.clientHeight;
-    var video = document.getElementById('video');
-  
-    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    // Not adding `{ audio: true }` since we only want video now
-    var configuracion = {
-        video: {
-            facingMode: "user"
-        },
-    }; 
-   navigator.mediaDevices.getUserMedia(configuracion).then(function(stream) {
-        //video.src = window.URL.createObjectURL(stream);
-        video.srcObject = stream;
-        video.play();
-    });
-}
+    
     function handleOrientation(eventData) {
   
      var x = eventData.beta;  // In degree in the range [-180,180]
@@ -57,7 +44,7 @@
     
     scream.style.top  = (maxY*y/180 - 10) + "px";
     scream.style.left = (maxX*x/180 - 10) + "px";
-    ctx.drawImage(video, 0, 0, 480, 640);
+    //ctx.drawImage(video, 0, 0, 480, 640);
     ctx.drawImage(img, x, y);
 
 }
