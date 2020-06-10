@@ -60,8 +60,7 @@ if ('DeviceOrientationEvent' in window) {
 setInterval (function(){  
     x = canvas.width/2;
     y = canvas.height/2;
-	var u = eventData.beta; 
-    context.drawImage(video, u, 0, 480, 640);
+    context.drawImage(video, 0, 0, 480, 640);
     context.drawImage(pikachu,x,y);
 },200);
     </script>
