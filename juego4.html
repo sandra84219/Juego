@@ -53,14 +53,14 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   document.getElementById("beta").innerHTML = eventData.beta;
   document.getElementById("alfa").innerHTML = eventData.alpha;
 }   
-setInterval (function(){
+setInterval (function(eventData){
     var x = Math.round(Math.random()*480);  // In degree in the range [-180,180]
     var y = Math.round(Math.random()*640);
     //var x = eventData.beta;  // In degree in the range [-180,180]
     //var y = eventData.gamma;
    // eventdata.alfa = x;
     //eventdata.beta = y;
-    context.drawImage(video, 0, 0, 480, 640);
+    context.drawImage(video, eventData.gamma, eventData.beta, 480, 640);
     context.drawImage(pikachu,x,y);
 },200);
     </script>
