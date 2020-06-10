@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head>  
     <meta charset="utf-8">
-    <title>camara</title>
+    <title>Pokemon Go</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
@@ -29,12 +29,16 @@ var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 var pikachu = document.getElementById("pikachu");
 var x,y;
+var alfa = Math.round(Math.random()*480);  // In degree in the range [-180,180]
+var beta = Math.round(Math.random()*640);
+     
 if ('DeviceOrientationEvent' in window) {
   window.addEventListener('deviceorientation', deviceOrientationHandler, false);
 } else {
   alert("No soporta orientación");
 }
-// Get access to the camera!
+
+ // Get access to the camera!
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     // Not adding `{ audio: true }` since we only want video now
     var configuracion = {
@@ -49,19 +53,17 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     });
 }
  function deviceOrientationHandler (eventData) {
-  document.getElementById("gama").innerHTML = eventData.gamma;
-  document.getElementById("beta").innerHTML = eventData.beta;
-  document.getElementById("alfa").innerHTML = eventData.alpha;
+  var x = eventData.gamma;
+  var y = eventData.beta;
+  //var x = eventData.beta;  // In degree in the range [-180,180]
+  //var y = eventData.gamma;
+  // eventdata.alfa = x;
+  //eventdata.beta = y;    
+  //document.getElementById("gama").innerHTML = eventData.gamma;
+  //document.getElementById("beta").innerHTML = eventData.beta;
+  //document.getElementById("alfa").innerHTML = eventData.alpha;
 }   
 setInterval (function(eventData){
-    var alfa = Math.round(Math.random()*480);  // In degree in the range [-180,180]
-    var beta = Math.round(Math.random()*640);
-    var x = eventData.gamma;
-    var y = eventData.beta;
-    //var x = eventData.beta;  // In degree in the range [-180,180]
-    //var y = eventData.gamma;
-   // eventdata.alfa = x;
-    //eventdata.beta = y;
     context.drawImage(video, 0, 0, 480, 640);
     context.drawImage(pikachu,x - alfa ,y - beta);
 },200);
