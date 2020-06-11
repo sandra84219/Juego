@@ -34,8 +34,8 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 setInterval (function(){
   var i;
   for (i=0; i<1; i++ ){
-    x = Math.random()*480;
-    y = Math.random()*640;
+    x = Math.random()*4;
+    y = Math.random()*6;
   }
     context.drawImage(video, 0, 0, 480, 640);
     context.drawImage(pikachu,x,y);
