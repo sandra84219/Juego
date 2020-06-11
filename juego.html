@@ -32,8 +32,8 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     });
 }
 setInterval (function(){
-    x = Math.random()*480;
-    y = Math.random()*640;
+    x = Math.random();
+    y = Math.random();
     context.drawImage(video, 0, 0, 480, 640);
     context.drawImage(pikachu,x,y);
 },200);
