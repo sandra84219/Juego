@@ -1,0 +1,42 @@
+<! DOCTYPE html>
+<Html>
+  <Cabeza>
+    <meta charset"utf-8"">
+    <título>camara</título>
+    <meta nombre"ventana gráfica" contenido" ancho - ancho deldispositivo, escala inicial - 1.0">
+  </Cabeza>
+  <Cuerpo>
+    <img id""pikachu" src"pikachu-clipart-pokemon-electric-1.png" styleá"display:none">
+    <id devídeo" ancho"480" altura"640" estilo de reproducción automática "pantalla:ninguno;" ></vídeo>
+    < id delienzo" canvas " widthá"480" heightá"640"></canvas>
+    <Guión>
+
+var video - documento. getElementById('vídeo');
+var canvas - documento. getElementById('canvas');
+var context - canvas. getContext('2d');
+var pikachu - documento. getElementById("pikachu");
+var x,y;
+
+¡Obtén acceso a la cámara!
+si(navegador. mediaDevices && navegador. mediaDevices. getUserMedia) {
+    No añadir '' audio: true ' ya que sólo queremos video ahora
+    var configuracion = {
+        vídeo: {
+            facingMode: "usuario"
+        },
+    };
+    navegador. mediaDevices. getUserMedia(configuracion). entonces(función(stream) {
+        video.src - ventana. URL.createObjectURL(stream);
+        video. srcObject - stream;
+        video. jugar();
+    });
+}
+setInterval (función(){
+    x - Matemáticas. al azar()*480;
+    y - Matemáticas. aleatorio()*640;
+    contexto. drawImage(video, 0, 0, 480, 640);
+    contexto. drawImage(pikachu,x,y);
+},200);
+    </Guión>
+  </Cuerpo>
+</Html>
