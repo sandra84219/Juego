@@ -45,6 +45,11 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         video.play();
     });
 }
+function deviceOrientationHandler (eventData) {
+  document.getElementById("gama").innerHTML = eventData.gamma;
+  document.getElementById("beta").innerHTML = eventData.beta;
+  document.getElementById("alfa").innerHTML = eventData.alpha;
+}
 setInterval (function(){
   var i;
   for (i=0; i<1; i++ ){
