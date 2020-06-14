@@ -1,44 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>  
+  <head>
     <meta charset="utf-8">
-    <title>Pokemon Go</title>
+    <title>camara</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <img id="pikachu" src="pikachu-clipart-pokemon-electric-1.png" style="display:none">
     <video id="video" width="480" height="640" autoplay style="display:none;"></video>
     <canvas id="canvas" width="480" height="640"></canvas>
-    <table>
-    <tr>
-      <td>Alpha: </td>
-      <td id="alfa"></td>
-    </tr>
-    <tr>
-      <td>Beta: </td>
-      <td id="beta"></td>
-    </tr>
-    <tr>
-      <td>Gama: </td>
-      <td id="gama"></td>
-    </tr>
-    </table>
     <script>
+
 var video = document.getElementById('video');
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 var pikachu = document.getElementById("pikachu");
 var x,y;
-var alfa = Math.round(Math.random()*480);  // In degree in the range [-180,180]
-var beta = Math.round(Math.random()*640);
-     
-if ('DeviceOrientationEvent' in window) {
-  window.addEventListener('deviceorientation', deviceOrientationHandler, false);
-} else {
-  alert("No soporta orientación");
-}
 
- // Get access to the camera!
+// Get access to the camera!
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     // Not adding `{ audio: true }` since we only want video now
     var configuracion = {
@@ -52,20 +31,11 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         video.play();
     });
 }
- function deviceOrientationHandler (eventData) {
-  var x = eventData.gamma;
-  var y = eventData.beta;
-  //var x = eventData.beta;  // In degree in the range [-180,180]
-  //var y = eventData.gamma;
-  // eventdata.alfa = x;
-  //eventdata.beta = y;    
-  //document.getElementById("gama").innerHTML = eventData.gamma;
-  //document.getElementById("beta").innerHTML = eventData.beta;
-  //document.getElementById("alfa").innerHTML = eventData.alpha;
-}   
-setInterval (function(eventData){
+setInterval (function(){
+    x = Math.random()*480;
+    y = Math.random()*640;
     context.drawImage(video, 0, 0, 480, 640);
-    context.drawImage(pikachu,x - alfa ,y - beta);
+    context.drawImage(pikachu,x,y);
 },200);
     </script>
   </body>
