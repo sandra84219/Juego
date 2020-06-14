@@ -29,7 +29,7 @@ var video = document.getElementById('video');
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 var pikachu = document.getElementById("pikachu");
-var x,y;
+var x,y,aX,aY,aZ;
 if ('DeviceOrientationEvent' in window) {
   window.addEventListener('deviceorientation', deviceOrientationHandler, false);
 } else {
@@ -53,9 +53,9 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   document.getElementById("gama").innerHTML = eventData.gamma;
   document.getElementById("beta").innerHTML = eventData.beta;
   document.getElementById("alfa").innerHTML = eventData.alpha;
-  var aX = eventData.gamma*10;
+  var aX = eventData.gamma;
   var aY = eventData.beta;
-  var aZ = eventData.alpha10;
+  var aZ = eventData.alpha;
 }   
       
 setInterval (function(){
