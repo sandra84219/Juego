@@ -53,7 +53,9 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   document.getElementById("gama").innerHTML = eventData.gamma;
   document.getElementById("beta").innerHTML = eventData.beta;
   document.getElementById("alfa").innerHTML = eventData.alpha;
-   
+  var aX = eventData.gamma*10;
+  var aY = eventData.beta;
+  var aZ = eventData.alpha10;
 }   
       
 setInterval (function(){
