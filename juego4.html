@@ -53,16 +53,18 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   document.getElementById("gama").innerHTML = eventData.gamma;
   document.getElementById("beta").innerHTML = eventData.beta;
   document.getElementById("alfa").innerHTML = eventData.alpha;
-  var aX = eventData.gamma;
-  var aY = eventData.beta;
-  var aZ = eventData.alpha;
+  aX = eventData.gamma;
+  aY = eventData.beta;
+  aZ = eventData.alpha;
   x = canvas.width/2;
   y = canvas.height/2;
+  //var a = x - aX;
+   
 }   
       
 setInterval (function(){
     context.drawImage(video, 0, 0, 480, 640);
-    context.drawImage(pikachu,x,y);
+    context.drawImage(pikachu,x-aX,y-aY);
 },200);
     </script>
   </body>
