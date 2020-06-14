@@ -56,13 +56,13 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   var aX = eventData.gamma;
   var aY = eventData.beta;
   var aZ = eventData.alpha;
+  x = canvas.width/2;
+  y = canvas.height/2;
 }   
       
 setInterval (function(){
-    x = canvas.width/2;
-    y = canvas.height/2;
     context.drawImage(video, 0, 0, 480, 640);
-    context.drawImage(pikachu,x-aX,y-aY);
+    context.drawImage(pikachu,x,y);
 },200);
     </script>
   </body>
