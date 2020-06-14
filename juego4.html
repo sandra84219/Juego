@@ -30,7 +30,11 @@ var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 var pikachu = document.getElementById("pikachu");
 var x,y;
-
+if ('DeviceOrientationEvent' in window) {
+  window.addEventListener('deviceorientation', deviceOrientationHandler, false);
+} else {
+  alert("No soporta orientación");
+}
 // Get access to the camera!
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     // Not adding `{ audio: true }` since we only want video now
