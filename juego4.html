@@ -55,9 +55,9 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   document.getElementById("gama").innerHTML = eventData.gamma;
   document.getElementById("beta").innerHTML = eventData.beta;
   document.getElementById("alfa").innerHTML = eventData.alpha;
-  aX = eventData.gamma*9.8;
-  aY = eventData.beta*9.8;
-  aZ = eventData.alpha*9.8;
+  aX = eventData.gamma*3.8;
+  aY = eventData.beta*3.8;
+  aZ = eventData.alpha*3.8;
   x = canvas.width/2;
   y = canvas.height/2;
   //var a = x - aX;
@@ -66,7 +66,7 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       
 setInterval (function(){
     context.drawImage(video, 0, 0, 480, 640);
-    context.drawImage(pikachu,aX-x,aY-y);
+    context.drawImage(pikachu,x-aX,y-aY);
 },200);
     </script>
   </body>
