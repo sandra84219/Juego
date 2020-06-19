@@ -64,7 +64,7 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       
 setInterval (function(){
     context.drawImage(video, 0, 0, 480, 640);
-    context.drawImage(pikachu,-x+aX,-y+aY);
+    context.drawImage(pikachu,aX-x,aY-y);
 },200);
     </script>
   </body>
